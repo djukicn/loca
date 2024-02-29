@@ -72,7 +72,7 @@ class LOCA(nn.Module):
         self.pos_emb = PositionalEncodingsFixed(emb_dim)
 
     def forward(self, x, bboxes):
-        num_objects = bboxes.size(1) if not self.zero_shot else self.num_objects
+        num_objects = bboxes.size(1) if self.zero_shot else self.num_objects
         # backbone
         backbone_features = self.backbone(x)
         # prepare the encoder input

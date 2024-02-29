@@ -100,7 +100,7 @@ class FSC147Dataset(Dataset):
         bboxes = torch.tensor(
             self.annotations[self.image_names[idx]]['box_examples_coordinates'],
             dtype=torch.float32
-        )[:3, [0, 2], :].reshape(-1, 4)[:self.num_objects, ...]
+        )[:3, [0, 2], :].reshape(3, -1, 4)[:self.num_objects, ...]
         bboxes = bboxes / torch.tensor([w, h, w, h]) * self.img_size
 
         density_map = torch.from_numpy(np.load(os.path.join(
