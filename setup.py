@@ -6,5 +6,6 @@ setuptools.setup(
      version="0.0.1",
      python_requires=">=3.9",   
      packages=find_packages(),
-     install_requires=["torch"],
+     package_dir={"loca": "models"},
+     install_requires=["torch", "torchvision"],
 )
